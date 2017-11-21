@@ -22,13 +22,15 @@ public class Ventana extends JFrame{
 		this.pi = new PanelInventario(pbo);
 		this.add(this.pi, BorderLayout.EAST);
 		
-		this.pg = new PanelGraficas();
-		this.add(this.pg, BorderLayout.SOUTH);
-		
 		this.pb = new PanelBotones(this.pi);
 		this.add(this.pb, BorderLayout.CENTER);
+		
+		this.pg = new PanelGraficas(this.pi);
+		this.add(this.pg, BorderLayout.SOUTH);
+		
 		this.pbo.setPi(pi);
 		this.pb.setPbo(pbo);
+		this.pbo.setPg(pg);
 		
 		this.pack();
 		

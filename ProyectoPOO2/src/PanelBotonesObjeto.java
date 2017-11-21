@@ -24,6 +24,7 @@ public class PanelBotonesObjeto extends JPanel{
 				btquitar;
 	private PanelInventario pi;
 	private int num;
+	private PanelGraficas pg;
 
 	public PanelBotonesObjeto(){
 		super(new GridLayout(5,2));
@@ -63,6 +64,7 @@ public class PanelBotonesObjeto extends JPanel{
 			}else{
 				try{
 				pi.agregarArticulo(new Objeto(tfnombre.getText(), Integer.parseInt(tfcantidad.getText()),Integer.parseInt(tfprecio.getText())));
+				pg.repintarGraficas();
 				num++;
 				}catch(NumberFormatException e2){
 					JOptionPane.showMessageDialog(null, "Tienes que ingresar un numero");
@@ -81,6 +83,7 @@ public class PanelBotonesObjeto extends JPanel{
 					JOptionPane.showMessageDialog(null, "Objeto no registado \nIndex fuera de rango");
 				}else{
 				pi.quitarArticulo(Integer.parseInt(tfindex.getText())-1);
+				pg.repintarGraficas();
 				num--;
 			}
 			}
@@ -88,6 +91,9 @@ public class PanelBotonesObjeto extends JPanel{
 		this.add(this.btquitar);
 		
 	
+	}
+	public void setPg(PanelGraficas pg) {
+		this.pg = pg;
 	}
 	public void setPi(PanelInventario pi) {
 		this.pi = pi;
